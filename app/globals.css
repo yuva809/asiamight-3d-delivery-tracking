@@ -1,0 +1,112 @@
+@import "tailwindcss";
+
+:root {
+  --color-paper: #f6f1e7;
+  --color-paper-dim: #ede4d2;
+  --color-ink: #18140f;
+  --color-ink-soft: #5b5344;
+
+  --color-void: #12100b;
+  --color-void-dim: #1d1912;
+  --color-mist: #f3ecdd;
+  --color-mist-soft: #b8ac96;
+
+  --color-chili: #d6472c;
+  --color-chili-strong: #b33a22;
+  --color-saffron: #e3a23a;
+  --color-jade: #4c7a5a;
+  --color-jade-strong: #3a6047;
+  --color-lotus: #c97b84;
+  --color-indigo: #3e4e77;
+
+  --color-line: rgba(24, 20, 15, 0.12);
+  --color-line-dark: rgba(243, 236, 221, 0.16);
+
+  --radius-pill: 9999px;
+  --radius-card: 28px;
+  --radius-tile: 18px;
+  --radius-input: 14px;
+}
+
+@theme inline {
+  --color-paper: var(--color-paper);
+  --color-paper-dim: var(--color-paper-dim);
+  --color-ink: var(--color-ink);
+  --color-ink-soft: var(--color-ink-soft);
+
+  --color-void: var(--color-void);
+  --color-void-dim: var(--color-void-dim);
+  --color-mist: var(--color-mist);
+  --color-mist-soft: var(--color-mist-soft);
+
+  --color-chili: var(--color-chili);
+  --color-chili-strong: var(--color-chili-strong);
+  --color-saffron: var(--color-saffron);
+  --color-jade: var(--color-jade);
+  --color-jade-strong: var(--color-jade-strong);
+  --color-lotus: var(--color-lotus);
+  --color-indigo: var(--color-indigo);
+
+  --color-line: var(--color-line);
+  --color-line-dark: var(--color-line-dark);
+
+  --radius-pill: var(--radius-pill);
+  --radius-card: var(--radius-card);
+  --radius-tile: var(--radius-tile);
+  --radius-input: var(--radius-input);
+
+  --font-display: var(--font-display);
+  --font-body: var(--font-body);
+}
+
+body {
+  background: var(--color-paper);
+  color: var(--color-ink);
+}
+
+::selection {
+  background: var(--color-chili);
+  color: var(--color-mist);
+}
+
+/* Hairline focus ring, consistent everywhere */
+:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+html,
+body {
+  height: 100%;
+}
+
+@keyframes live-pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.55;
+  }
+  100% {
+    transform: scale(2.4);
+    opacity: 0;
+  }
+}
+
+.live-pulse::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 9999px;
+  background: currentColor;
+  animation: live-pulse 1.8s ease-out infinite;
+}
